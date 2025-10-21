@@ -51,7 +51,8 @@
                 <Label Text="Escolha sua suíte"/>
 
                 <Picker x:Name="pck_quarto"
-                        Title="Selecione sua Acomodação"/>
+                        Title="Selecione sua Acomodação"
+                        ItemDisplayBinding="{Binding Descricao}"/>
 
                 <Frame Padding="10"
                        Margin="10">
@@ -61,6 +62,7 @@
                         <HorizontalStackLayout>
                             <Label Text="Check-in:"/>
                             <DatePicker x:Name="dtpck_checkin"
+                                        DateSelected="dtpck_checkin_DateSelected"
                                         Format="dd/mm/yyyy"/>
                         </HorizontalStackLayout>
                         
@@ -75,7 +77,8 @@
                 </Frame>
 
                 <Button Text="Avançar"
-                        Margin="10"/>
+                        Margin="10"
+                        Clicked="Button_Clicked_1"/>
 
                 <Button Text="Sobre"
                         Clicked="Button_Clicked"
