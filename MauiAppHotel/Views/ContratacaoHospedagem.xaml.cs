@@ -1,3 +1,5 @@
+using MauiAppHotel.Models;
+
 namespace MauiAppHotel.Views;
 
 public partial class ContratacaoHospedagem : ContentPage
@@ -23,11 +25,30 @@ public partial class ContratacaoHospedagem : ContentPage
 		await Navigation.PushAsync(new Views.Sobre());
     }
 
-    private void Button_Clicked_1(object sender, EventArgs e)
+    private async void Avancar(object sender, EventArgs e)
     {
         try
         {
-            Navigation.PushAsync(new HospedagemContratada());
+            if (pck_quarto.SelectedItem == null)
+            {
+                await DisplayAlert("Aviso", "Selecione uma acomodação antes de prosseguir.", "OK");
+                return;
+            }
+
+            var quartoSelecionado = (Quarto)pck_quarto.SelectedItem;
+
+            var info = new InfoHospedagem
+            {
+                Adultos = (int)stp_adultos.Value,
+                Criancas = (int)stp_criancas.Value,
+                Checkin = dtpck_checkin.Date,
+                Checkout = dtpck_checkout.Date,
+                Descricao = quartoSelecionado.Descricao,
+                ValorDiariaAdulto = quartoSelecionado.ValorDiariaAdulto,
+                ValorDiariaCrianca = quartoSelecionado.ValorDiariaCrianca
+            };
+
+            await Navigation.PushAsync(new HospedagemContratada(info));
         } catch (Exception ex)
         {
             DisplayAlert("Ops", ex.Message, "OK");
