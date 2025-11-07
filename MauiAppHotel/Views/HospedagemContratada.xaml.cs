@@ -17,12 +17,7 @@ public partial class HospedagemContratada : ContentPage
 
         try
         {
-            if (info == null)
-            {
-                DisplayAlert("Erro", "Informações da hospedagem não recebidas.", "OK");
-                return;
-            }
-
+            
             lblDescricao.Text = info.Descricao;
             lblAdultos.Text = info.Adultos.ToString();
             lblCriancas.Text = info.Criancas.ToString();

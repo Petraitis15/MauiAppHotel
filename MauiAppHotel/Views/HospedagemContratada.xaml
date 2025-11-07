@@ -18,7 +18,6 @@
                <Grid RowDefinitions="*"
                      ColumnDefinitions="*,*,*,*"
                      ColumnSpacing="10"
-                     RowSpacing="10"
                      Margin="10">
                     <Label Grid.Row="0" Grid.Column="0" Text="Adultos:"/>
                     <Label Grid.Row="0" Grid.Column="1" x:Name="lblAdultos" TextColor="{StaticResource Primary}"/>

@@ -35,6 +35,12 @@ public partial class ContratacaoHospedagem : ContentPage
                 return;
             }
 
+            if (stp_adultos.Value == 0)
+            {
+                DisplayAlert("Erro", "Necessário mínimo de 1 adulto.", "OK");
+                return;
+            }
+
             var quartoSelecionado = (Quarto)pck_quarto.SelectedItem;
 
             var info = new InfoHospedagem
